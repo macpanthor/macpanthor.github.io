@@ -4,7 +4,6 @@
 
 // ===== DYNAMIC TEXT TYPING (Hero Subtitle) =====
 const roles = [
-  'Foundation in Computing Student',
   'Aspiring Cybersecurity Professional',
   'Hardware Maker & Developer',
 ];
