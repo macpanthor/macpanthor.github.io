@@ -148,7 +148,7 @@ contactForm.addEventListener('submit', (e) => {
   // Show success message
   contactForm.innerHTML = `
     <div class="form-success">
-      <i class="fas fa-check-circle"></i>
+      <svg class="icon"><use href="#i-check-circle"/></svg>
       <p>Thank you, <strong>${name}</strong>! Your message has been sent.</p>
       <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
         I'll get back to you soon.

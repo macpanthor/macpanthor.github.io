@@ -228,8 +228,14 @@ img {
 .hero-title-wrapper {
   font-size: 1.3rem;
   margin-bottom: 15px;
+  min-height: 1.6em; /* reserve space to prevent CLS from typewriter */
   opacity: 0;
   animation: fadeInDown 0.8s ease 0.4s forwards;
+}
+
+.hero-title-dynamic {
+  min-height: 1em;
+  display: inline-block;
 }
 
 .hero-title-static {
@@ -391,11 +397,11 @@ img {
   transform: translateX(5px);
 }
 
-.info-item i {
+.info-item .icon {
   color: var(--accent);
-  font-size: 1.2rem;
   width: 24px;
-  text-align: center;
+  height: 24px;
+  font-size: 1.2rem;
 }
 
 .info-item span {
@@ -446,8 +452,9 @@ img {
   box-shadow: 0 6px 20px rgba(0, 188, 212, 0.15);
 }
 
-.skill-badge i {
-  font-size: 1.2rem;
+.skill-badge .icon {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 /* ===== PROJECTS ===== */
@@ -481,7 +488,8 @@ img {
 }
 
 .project-icon {
-  font-size: 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
   color: var(--accent);
 }
 
@@ -574,10 +582,9 @@ img {
   transform: translateX(8px);
 }
 
-.contact-link i {
-  font-size: 1.3rem;
+.contact-link .icon {
   width: 28px;
-  text-align: center;
+  height: 28px;
 }
 
 /* Contact Form */
@@ -629,8 +636,9 @@ img {
   font-size: 1.1rem;
 }
 
-.form-success i {
-  font-size: 2.5rem;
+.form-success .icon {
+  width: 2.5rem;
+  height: 2.5rem;
   margin-bottom: 15px;
   display: block;
 }
@@ -664,6 +672,11 @@ footer p {
   color: var(--text-secondary);
   font-size: 1.2rem;
   transition: all 0.3s ease;
+}
+
+.footer-socials a .icon {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .footer-socials a:hover {
@@ -702,19 +715,14 @@ footer p {
   left: 0;
 }
 
-/* Font Awesome web fonts: ensure text is visible during font load */
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2') format('woff2');
-  font-weight: 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Font Awesome 6 Brands';
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
+/* ===== INLINE SVG ICONS ===== */
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
