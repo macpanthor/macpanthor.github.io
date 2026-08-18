@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shuaib Ahamad — aspiring cybersecurity professional, web developer, and hardware maker. Explore projects, skills, and experience.">
   <title>Shuaib Ahamad | Portfolio</title>
+  <meta name="description" content="Shuaib Ahamad — aspiring cybersecurity professional, web developer, and hardware maker. Explore projects, skills, and experience.">
   <meta property="og:title" content="Shuaib Ahamad | Portfolio" />
   <meta property="og:description" content="Aspiring Cybersecurity Professional | Web Dev & Hardware Maker" />
   <meta property="og:image" content="https://macpanthor.github.io/thumbnail.png" />
   <meta property="og:url" content="https://macpanthor.github.io" />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://macpanthor.com/" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome for icons (non-blocking load) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=2">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=2">
@@ -21,10 +27,13 @@
 </head>
 <body>
 
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#home" class="skip-link">Skip to content</a>
+
   <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Primary">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">&lt;SA /&gt;</a>
+      <a href="#home" class="nav-logo" aria-label="Shuaib Ahamad — Home">&lt;SA /&gt;</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
@@ -39,6 +48,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- ===== HERO SECTION ===== -->
   <section id="home" class="hero">
@@ -167,8 +178,8 @@
             <span>MySQL</span>
             <span>XAMPP</span>
           </div>
-          <a href="https://github.com/macpanthor/wardensystemaiu" target="_blank" class="btn btn-small btn-primary">
-            <i class="fab fa-github"></i> View on GitHub
+          <a href="https://github.com/macpanthor/wardensystemaiu" target="_blank" class="btn btn-small btn-primary" aria-label="View Warden Inspection System on GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
           </a>
         </div>
 
@@ -205,8 +216,8 @@
             <span>File I/O</span>
             <span>Data Structures</span>
           </div>
-          <a href="https://github.com/macpanthor/student-grade-management" target="_blank" class="btn btn-small btn-primary">
-            <i class="fab fa-github"></i> View on GitHub
+          <a href="https://github.com/macpanthor/student-grade-management" target="_blank" class="btn btn-small btn-primary" aria-label="View Student Grade Management System on GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
           </a>
         </div>
 
@@ -333,18 +344,20 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <p>&copy; 2026 Shuaib Ahamad. Built with <i class="fas fa-heart" style="color:#00bcd4;"></i></p>
       <div class="footer-socials">
-        <a href="https://github.com/macpanthor" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/shuaibahamad" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:shuaibahmadh200503@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/macpanthor" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
+        <a href="https://www.linkedin.com/in/shuaibahamad" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+        <a href="mailto:shuaibahmadh200503@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i><span class="sr-only">Email</span></a>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
