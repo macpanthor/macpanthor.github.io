@@ -527,7 +527,6 @@ img {
   font-size: 0.92rem;
   line-height: 1.7;
   margin-bottom: 18px;
-  flex: 1;
 }
 
 .project-tags {
@@ -548,6 +547,17 @@ img {
 
 .project-card .btn {
   align-self: flex-start;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-links .btn {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* ===== CONTACT ===== */
