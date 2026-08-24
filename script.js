@@ -124,38 +124,83 @@ revealElements.forEach(el => {
   }
 });
 
-// ===== CONTACT FORM HANDLING =====
+// ===== CONTACT FORM HANDLING (Formspree) =====
 const contactForm = document.getElementById('contactForm');
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjwadza';
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = document.getElementById('formName').value.trim();
   const email = document.getElementById('formEmail').value.trim();
   const message = document.getElementById('formMessage').value.trim();
 
+  // Clear any previous status message
+  const existingStatus = contactForm.querySelector('.form-status');
+  if (existingStatus) existingStatus.remove();
+
   if (!name || !email || !message) {
-    alert('Please fill in all fields.');
+    showFormStatus('Please fill in all fields.', false);
     return;
   }
 
   // Simple email validation
   if (!email.includes('@') || !email.includes('.')) {
-    alert('Please enter a valid email address.');
+    showFormStatus('Please enter a valid email address.', false);
     return;
   }
 
-  // Show success message
-  contactForm.innerHTML = `
-    <div class="form-success">
-      <svg class="icon"><use href="#i-check-circle"/></svg>
-      <p>Thank you, <strong>${name}</strong>! Your message has been sent.</p>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
-        I'll get back to you soon.
-      </p>
-    </div>
-  `;
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Sending...';
+
+  try {
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        // Formspree special fields: reply-to goes to the submitter, subject customizes the email subject
+        _replyto: email,
+        _subject: `Portfolio message from ${name}`
+      })
+    });
+
+    if (response.ok) {
+      // Show success message (replaces the form)
+      contactForm.innerHTML = `
+        <div class="form-success form-status">
+          <svg class="icon"><use href="#i-check-circle"/></svg>
+          <p>Thank you, <strong>${name}</strong>! Your message has been sent.</p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
+            I'll get back to you soon.
+          </p>
+        </div>
+      `;
+    } else {
+      const data = await response.json().catch(() => null);
+      const errMsg = data && data.errors && data.errors[0] ? data.errors[0].message : 'Something went wrong. Please try again.';
+      showFormStatus(errMsg, false);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+    }
+  } catch (error) {
+    showFormStatus('Network error. Please check your connection and try again.', false);
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalHTML;
+  }
 });
+
+// Helper to show an inline status message (error or info)
+function showFormStatus(msg, isSuccess) {
+  const status = document.createElement('div');
+  status.className = 'form-status' + (isSuccess ? ' success' : ' error');
+  status.textContent = msg;
+  contactForm.insertBefore(status, contactForm.querySelector('button[type="submit"]'));
+}
 
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS (fallback) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

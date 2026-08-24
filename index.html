@@ -158,9 +158,9 @@
           <div class="skill-badge"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"> JavaScript</div>
           <div class="skill-badge"><img src="https://skillicons.dev/icons?i=php" alt="PHP" loading="lazy"> PHP</div>
           <div class="skill-badge"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"> MySQL</div>
-          <div class="skill-badge"><img src="https://skillicons.dev/icons?i=c" alt="C Programming" loading="lazy"> C Programming</div>
+          <div class="skill-badge"><img src="https://skillicons.dev/icons?i=c" alt="C" loading="lazy"> C</div>
           <div class="skill-badge"><img src="https://skillicons.dev/icons?i=sqlite" alt="SQL" loading="lazy"> SQL</div>
-          <div class="skill-badge"><img src="https://skillicons.dev/icons?i=md" alt="Markdown" loading="lazy"> Markdown</div>
+          <div class="skill-badge"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"> Python</div>
         </div>
       </div>
 
@@ -394,15 +394,15 @@
           </a>
         </div>
 
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mkjwadza" method="POST">
           <div class="form-group">
-            <input type="text" id="formName" placeholder="Your Name" required>
+            <input type="text" id="formName" name="name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" id="formEmail" placeholder="Your Email" required>
+            <input type="email" id="formEmail" name="email" placeholder="Your Email" required>
           </div>
           <div class="form-group">
-            <textarea id="formMessage" rows="5" placeholder="Your Message" required></textarea>
+            <textarea id="formMessage" name="message" rows="5" placeholder="Your Message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">
             <svg class="icon"><use href="#i-paper-plane"/></svg> Send Message
