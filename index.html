@@ -77,7 +77,7 @@
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="hamburger" id="hamburger">
@@ -202,12 +202,13 @@
         <div class="project-card">
           <div class="project-header">
             <svg class="icon project-icon"><use href="#i-clipboard-check"/></svg>
-            <h3>Warden Inspection System</h3>
+            <h3>Warden Inspection System <span class="project-private">Private Repo</span></h3>
           </div>
           <p class="project-desc">
-            A web-based hostel management platform that manages student rooms,
-            inspection zones, wardens, maintenance requests and complaints
-            across 13 blocks and 780+ rooms.
+            A production-grade hostel management platform for Albukhary International University (AIU).
+            Manages room inspections, security patrols, maintenance, complaints, warning letters and
+            duty rosters across 13 blocks, ~946 rooms and ~2,791 bed zones — with 6 roles, RBAC and
+            a full audit trail.
           </p>
           <div class="project-tags">
             <span>HTML</span>
@@ -217,9 +218,11 @@
             <span>MySQL</span>
             <span>XAMPP</span>
           </div>
-          <a href="https://github.com/macpanthor/wardensystemaiu" target="_blank" class="btn btn-small btn-primary" aria-label="View Warden Inspection System on GitHub">
-            <svg class="icon"><use href="#i-github"/></svg> View on GitHub
-          </a>
+          <div class="project-links">
+            <a href="projects.html" class="btn btn-small btn-primary" aria-label="View full Warden Inspection System case study">
+              <svg class="icon"><use href="#i-clipboard-check"/></svg> View Case Study
+            </a>
+          </div>
         </div>
 
         <!-- Project 2 -->
@@ -364,6 +367,12 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="projects-cta">
+        <a href="projects.html" class="btn btn-secondary">View All Projects
+          <svg class="icon"><use href="#i-link"/></svg>
+        </a>
       </div>
     </div>
   </section>

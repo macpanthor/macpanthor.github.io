@@ -15,6 +15,7 @@ let isDeleting = false;
 let typeSpeed = 80;
 
 function typeEffect() {
+  if (!dynamicEl) return;
   const currentRole = roles[roleIndex];
 
   if (isDeleting) {
@@ -40,26 +41,30 @@ function typeEffect() {
 }
 
 // Start typing effect
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(typeEffect, 1000);
-});
+if (dynamicEl) {
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeEffect, 1000);
+  });
+}
 
 // ===== MOBILE HAMBURGER MENU =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navLinks.classList.toggle('open');
-});
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navLinks.classList.remove('open');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
   });
-});
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+}
 
 // ===== ACTIVE NAV LINK ON SCROLL =====
 const sections = document.querySelectorAll('section[id]');
@@ -128,7 +133,7 @@ revealElements.forEach(el => {
 const contactForm = document.getElementById('contactForm');
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjwadza';
 
-contactForm.addEventListener('submit', async (e) => {
+if (contactForm) contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = document.getElementById('formName').value.trim();
