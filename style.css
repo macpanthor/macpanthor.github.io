@@ -409,6 +409,11 @@ img {
   font-size: 0.95rem;
 }
 
+.info-item em {
+  font-style: normal;
+  opacity: 0.7;
+}
+
 /* ===== SKILLS ===== */
 .skills-category {
   margin-bottom: 40px;
